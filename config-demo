@@ -1,7 +1,7 @@
 vhostdir=/var/www/
-exludevhostdir=(
-	dir1 
-	dir2
+excludevhost=(
+  dir1 
+  dir2
 )
 bucket=your-s3-bucket
 s3dir=dest-dir-in-s3
