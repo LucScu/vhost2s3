@@ -3,6 +3,7 @@ excludevhost=(
   dir1 
   dir2
 )
+deleteBeforeDay=7
 bucket=your-s3-bucket
 s3dir=dest-dir-in-s3
 tmpdir=/tmp/s3backup/
