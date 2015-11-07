@@ -17,7 +17,7 @@ now=$(date +"%Y%m%d")
 
 
 #print $excludevhost content
-#for v in "${excludevhost[@]}"
+#for v in "${excludevhost[*]}"
 #do
 #  echo $v
 #done
@@ -27,8 +27,8 @@ now=$(date +"%Y%m%d")
 #backup only dir that aren't in $excludevhost
 for D in `ls`
 do
-  FOUND=`echo ${excludevhost[@]} | grep '$D'`
-  if [ '${FOUND}' != '' ]; then
+  FOUND=`echo ${excludevhost[*]} | grep $D`
+  if [ "${FOUND}" != "" ]; then
     echo not backup $D
   else
     echo backup $D
