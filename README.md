@@ -4,9 +4,9 @@
 
 ### What is Vhost2s3
 Vhost2s3 (`vhost2s3`) is a free bash script that secures your vhosts data.
-It puts all content of your vhost directories to your Amazon S3 bucket with automatic backups.
+It puts all content of your vhosts directories to your Amazon S3 bucket with automatic backups.
 
-If you own a shared server you need to backup all your customers data.
+If you own a shared server you have to backup all your customers data automatically and chronically.
 Vhost2s3 make it simple with just few settings in `config-demo` file.
 
 
@@ -16,9 +16,10 @@ Vhost2s3 make it simple with just few settings in `config-demo` file.
 
 
 ### How to use
-1. Clone the repo on your shared server
-2. Customize all settings in `config-demo`
-3. Rename `config-demo` to `config`
-4. Backup your vhosts
- * for **manual backup** go to repo folder and run `bash backup.sh`
- * for **automatic backup** set an entry in your crontab, i.e. `0 4 * * * bash ~/s3/backup.sh`
+1. Create `vhost2s3` dir into your home directory
+2. Clone the repo into `vhost2s3` dir
+3. Customize required settings in `config-demo`
+4. Rename `config-demo` to `config`
+5. Backup your vhosts
+ * for **manual backup** go into vhost2s3 folder and run `bash backup.sh`
+ * for **automatic backup** set an entry in crontab, i.e. `0 4 * * * bash ~/vhost2s3/backup.sh` to run Vhost2s3 every day at 4am
