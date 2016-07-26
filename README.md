@@ -22,4 +22,4 @@ Vhost2s3 make it simple with just few settings in `config-demo` file.
 4. Rename `config-demo` to `config`
 5. Backup your vhosts
  * for **manual backup** go into `vhost2s3` folder and run `bash backup.sh`
- * for **automatic backup** set an entry in crontab, i.e. `0 4 * * * bash ~/vhost2s3/backup.sh` to run Vhost2s3 every day at 4am
+ * for **automatic backup** set an entry in crontab, i.e. `0 4 * * * bash ~/vhost2s3/backup.sh > /dev/null 2>&1` to run Vhost2s3 every day at 4am
