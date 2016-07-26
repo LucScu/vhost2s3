@@ -1,3 +1,4 @@
+singledir=/var/www/html/
 vhostdir=/var/www/
 excludevhost=(
   dir1 
