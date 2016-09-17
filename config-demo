@@ -1,5 +1,5 @@
-singledir=/var/www/html/
-vhostdir=/var/www/
+#singledir=/var/www/html/   #uncomment to use single mode
+#vhostdir=/var/www/         #uncomment to use vhost mode
 excludevhost=(
   dir1 
   dir2
@@ -8,3 +8,5 @@ deleteBeforeDay=7
 bucket=your-s3-bucket
 s3dir=dest-dir-in-s3
 tmpdir=/tmp/s3backup/
+
+# 55 3 * * * cd ~/apps/wordpress/htdocs/backup/ && mysqldump -u bn_wordpress -p61c47853d1 bitnami_wordpress > $(date +%Y%m%d).sql

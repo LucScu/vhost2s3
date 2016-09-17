@@ -7,16 +7,54 @@ currentdir=$(dirname $0)
 source $currentdir'/config'
 
 
-# other vars
-now='_'$(date +"%Y%m%d")
 
+##
+## CHECK MODE: SINGLE OR VHOST
+##
+
+# if no one mode is setted
+SINGLEDIR=`echo $singledir`
+VHOSTDIR=`echo $vhostdir`
+if [ "${SINGLEDIR}" == "" ] && [ "${VHOSTDIR}" == "" ]; then
+echo 'please review your config file and choose single or vhost mode'
+exit 1
+fi
+
+# if both mode are setted
+if [ "${SINGLEDIR}" != "" ] && [ "${VHOSTDIR}" != "" ]; then
+echo 'please review your config file and choose only one mode single or vhost'
+exit 1
+fi
+
+# check which mode is setted
+if [ -n "$singledir" ]; then
+  mode='single'
+fi
+
+if [ -n "$vhostdir" ]; then
+  mode='vhost'
+fi
+
+
+
+##
+## other vars
+##
+now='_'$(date +"%Y%m%d")
+MODE=`echo $mode`
+
+# echo $MODE
+# exit 0
 
 # create tmp dir if not exists
 mkdir -p $tmpdir
 
 
-# check if singledir is setted
-if [ -n "$singledir" ]; then
+
+##
+## single mode
+##
+if [ "${MODE}" == "single" ]; then
   
   # move to singledir
   cd $singledir  
@@ -46,8 +84,10 @@ fi
 
 
 
-# check if vhostdir is setted
-if [ -n "$vhostdir" ]; then
+##
+## vhost mode
+##
+if [ "${MODE}" == "single" ]; then
 
   # move to vhostdir
   cd $vhostdir
@@ -94,7 +134,9 @@ if [ -n "$vhostdir" ]; then
 fi
 
 
-# delete old archive
+##
+## delete old archive from bucket
+##
 date=""
 now=`date --date="now" +%s`
 deleteOlderThan=$deleteBeforeDay*86400
@@ -120,4 +162,5 @@ do
   fi
 done
 
+# all done correctly, exit with success (0)
 exit 0
