@@ -11,7 +11,7 @@ Vhost2s3 make it simple with just few settings in `config-demo` file.
 
 
 #### Update
-Added the possibility to choice mode between:
+Added the possibility to choice the backup mode between:
 
 1. **vhost mode**: to backup a group of directories inside your `vhostdir`
 2. **single mode**: to backup your `singledir` 
