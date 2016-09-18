@@ -87,7 +87,7 @@ fi
 ##
 ## vhost mode
 ##
-if [ "${MODE}" == "single" ]; then
+if [ "${MODE}" == "vhost" ]; then
 
   # move to vhostdir
   cd $vhostdir
@@ -98,6 +98,7 @@ if [ "${MODE}" == "single" ]; then
   #do
   #  echo $v
   #done
+  #exit 0
 
 
   #loop vhost dir
