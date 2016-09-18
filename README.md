@@ -10,9 +10,16 @@ If you own a shared server you have to backup all your customers data automatica
 Vhost2s3 make it simple with just few settings in `config-demo` file.
 
 
+#### Update
+Added the possibility to choice the backup mode between:
+
+1. **vhost mode**: to backup a group of directories inside your `vhostdir`
+2. **single mode**: to backup your `singledir` 
+
+
 ### Requirements
 - Amazon S3 bucket
-- Vhost2s3 interacts with Amazon S3 thanks the useful [S3cmd](https://github.com/s3tools/s3cmd) tool, so before to start to use Vhost2s3 you have to install S3cmd and verify that it works properly.
+- Vhost2s3 interacts with Amazon S3 thanks the useful [S3cmd](https://github.com/s3tools/s3cmd) tool, so before to start to use Vhost2s3 you have to install S3cmd and verify that it works properly
 
 
 ### How to use
