@@ -101,10 +101,15 @@ if [ "${MODE}" == "vhost" ]; then
   #exit 0
 
 
-  #loop vhost dir
-  #backup only dir that aren't in $excludevhost
+  # loop vhost dir
+  # backup only dir that aren't in $excludevhost
   for D in `ls`
   do
+    echo -e "\n\n"$D
+    if ! [ -d "${D}" ]
+        then echo "${D} is not a directory, not backup"
+        continue
+    fi
     FOUND=`echo ${excludevhost[*]} | grep $D`
     if [ "${FOUND}" != "" ]; then
       echo not backup $D
@@ -115,7 +120,10 @@ if [ "${MODE}" == "vhost" ]; then
 
       echo sourcezip: $sourcezip
       echo destzip: $destzip
- 
+
+      #continue
+      #exit 0 
+
       # create zip archive
       tar -zcf $destzip $sourcezip
 
